@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Study Buddy UGA - Select Course</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #faf9f9;
+    text-align: center;
+    margin: 0;
+    padding-top: 20px;
+}
+        
+         h1 {
+        text-align: center;
+        }
+        p {
+             text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+       
+        button {
+            width: 10%;
+            padding: 0.6rem;
+            background-color: #cc3300;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+
+             position: fixed;
+             bottom: 20px;      /* distance from bottom */
+             left: 50%;         /* center horizontally */
+             transform: translateX(-50%); /* shift left by half button width */
+        }
+        button:hover {
+            background-color: #e45c07;
+        }
+
+ .error-msg {
+  display: none;
+  color: red;
+  margin-top: 10px;
+    }
+        
+    </style>
+    </head>
+
+    <body>
+   <form id="CoursesForm" action="/connect" method="POST">
+   <h1> Course Selection Page </h1>
+   <p>Select any CSCI course from the dropdown below to connect with fellow UGA students.</p> 
+
+    <label for="courses">Select a Course:</label>
+    <select id="courses" name="courses">   
+    <option value="">Select a course</option>
+    <option value="CSCI1100">CSCI 1100 - Topics in Computing</option>
+    <option value="CSCI1100L">CSCI 1100L - Topics in Computing (Lab)</option>
+    <option value="CSCI1210">CSCI 1210 - Computer Modeling and Science</option>
+    <option value="CSCI1300">CSCI 1300 - Introduction to Programming with Python</option>
+    <option value="CSCI1300L">CSCI 1300L - Introduction to Programming with Python (Lab)</option>
+    <option value="CSCI1301">CSCI 1301 - Introduction to Computing and Programming</option>
+    <option value="CSCI1301L">CSCI 1301L - Introduction to Computing and Programming (Lab)</option>
+    <option value="CSCI1302">CSCI 1302 - Software Development</option>
+    <option value="CSCI1360">CSCI 1360 - Foundations for Informatics and Data Analytics</option>
+    <option value="CSCI1360E">CSCI 1360E - Foundations for Informatics and Data Analytics (Enhanced)</option>
+    <option value="CSCI1730">CSCI 1730 - Systems Programming</option>
+    <option value="CSCI1900">CSCI 1900 - Computer Science Special Topic</option>
+    <option value="CSCI2150">CSCI 2150 - Introduction to Computational Science</option>
+    <option value="CSCI2150L">CSCI 2150L - Introduction to Computational Science (Lab)</option>
+    <option value="CSCI2610">CSCI 2610 - Discrete Mathematics for Computer Science</option>
+    <option value="CSCI2610E">CSCI 2610E - Discrete Mathematics for Computer Science (Enhanced)</option>
+    <option value="CSCI2611">CSCI 2611 - Discrete Mathematics for Engineers</option>
+    <option value="CSCI2670">CSCI 2670 - Introduction to Theory of Computing</option>
+    <option value="CSCI2670E">CSCI 2670E - Introduction to Theory of Computing (Enhanced)</option>
+    <option value="CSCI2720">CSCI 2720 - Data Structures</option>
+    <option value="CSCI2725">CSCI 2725 - Data Structures for Data Science</option>
+    <option value="CSCI3030">CSCI 3030 - Computing, Ethics, and Society</option>
+    <option value="CSCI3030E">CSCI 3030E - Computing, Ethics, and Society (Enhanced)</option>
+    <option value="CSCI3030H">CSCI 3030H - Computing, Ethics, and Society (Honors)</option>
+    <option value="CSCI3360">CSCI 3360 - Data Science I</option>
+    <option value="CSCI4050">CSCI 4050 - Software Engineering</option>
+    <option value="CSCI4050E">CSCI 4050E - Software Engineering (Enhanced)</option>
+    <option value="CSCI4060">CSCI 4060 - Mobile Software Development</option>
+    <option value="CSCI4070">CSCI 4070 - Introduction to Game Programming</option>
+    <option value="CSCI4080">CSCI 4080 - Intermediate Game Programming</option>
+    <option value="CSCI4130">CSCI 4130 - CUDA C Programming on GPUs for High Performance Computing</option>
+    <option value="CSCI4140">CSCI 4140 - Numerical Methods and Computing</option>
+    <option value="CSCI4150">CSCI 4150 - Numerical Simulations in Science and Engineering</option>
+    <option value="CSCI4170">CSCI 4170 - Introduction to Computational Investing</option>
+    <option value="CSCI4210">CSCI 4210 - Simulation and Modeling</option>
+    <option value="CSCI4250">CSCI 4250 - Cyber Security</option>
+    <option value="CSCI4260">CSCI 4260 - Data Security and Privacy</option>
+    <option value="CSCI4270">CSCI 4270 - Introduction to Computer Forensics</option>
+    <option value="CSCI4300">CSCI 4300 - Web Programming</option>
+    <option value="CSCI4330">CSCI 4330 - Artificial Intelligence and the Web</option>
+    <option value="CSCI4350">CSCI 4350 - Global Information Systems</option>
+    <option value="CSCI4360">CSCI 4360 - Data Science II</option>
+    <option value="CSCI4370">CSCI 4370 - Database Management</option>
+    <option value="CSCI4380">CSCI 4380 - Data Mining</option>
+    <option value="CSCI4470">CSCI 4470 - Algorithms</option>
+    <option value="CSCI4490">CSCI 4490 - Algorithms for Computational Biology</option>
+    <option value="CSCI4500">CSCI 4500 - Programming Languages</option>
+    <option value="CSCI4520">CSCI 4520 - Functional Programming</option>
+    <option value="CSCI4530">CSCI 4530 - Introduction to Robotics</option>
+    <option value="CSCI4540">CSCI 4540 - Symbolic Programming</option>
+    <option value="CSCI4550">CSCI 4550 - Artificial Intelligence</option>
+    <option value="CSCI4560">CSCI 4560 - Evolutionary Computation and Its Applications</option>
+    <option value="CSCI4570">CSCI 4570 - Compilers</option>
+    <option value="CSCI4600">CSCI 4600 - Reinforcement Learning</option>
+    <option value="CSCI4612">CSCI 4612 - Introduction to Quantum Computation</option>
+    <option value="CSCI4670">CSCI 4670 - Combinatorics</option>
+    <option value="CSCI4690">CSCI 4690 - Graph Theory</option>
+    <option value="CSCI4720">CSCI 4720 - Computer Architecture and Organization</option>
+    <option value="CSCI4720E">CSCI 4720E - Computer Architecture and Organization (Enhanced)</option>
+    <option value="CSCI4730">CSCI 4730 - Operating Systems</option>
+    <option value="CSCI4740">CSCI 4740 - Real-Time Scheduling for Internet of Things</option>
+    <option value="CSCI4760">CSCI 4760 - Computer Networks</option>
+    <option value="CSCI4770">CSCI 4770 - Ubiquitous Computing</option>
+    <option value="CSCI4780">CSCI 4780 - Distributed Computing Systems</option>
+    <option value="CSCI4795">CSCI 4795 - Cloud Computing</option>
+    <option value="CSCI4800">CSCI 4800 - Human-Computer Interaction</option>
+    <option value="CSCI4810">CSCI 4810 - Computer Graphics</option>
+    <option value="CSCI4830">CSCI 4830 - Virtual Reality</option>
+    <option value="CSCI4835">CSCI 4835 - Introduction to Computational Biology</option>
+    <option value="CSCI4840">CSCI 4840 - Signal Processing</option>
+    <option value="CSCI4850">CSCI 4850 - Biomedical Image Analysis</option>
+    <option value="CSCI4900">CSCI 4900 - Special Topics in Computer Science</option>
+    <option value="CSCI4910">CSCI 4910 - Capstone Design I</option>
+    <option value="CSCI4911">CSCI 4911 - Capstone Design II</option>
+    <option value="CSCI4922">CSCI 4922 - Computer Systems Engineering Design Project</option>
+    <option value="ENGR4922">ENGR 4922 - Computer Systems Engineering Design Project</option>
+    <option value="CSCI4950">CSCI 4950 - Directed Study in Computer Science</option>
+    <option value="CSCI4960">CSCI 4960 - Faculty Mentored Research in Computer Science</option>
+    <option value="CSCI4970R">CSCI 4970R - Faculty-Mentored Undergraduate Research II</option>
+    <option value="CSCI4980R">CSCI 4980R - Faculty-Mentored Undergraduate Research III</option>
+    <option value="CSCI4990">CSCI 4990 - Data Science Capstone Course</option>
+    <option value="STAT4990">STAT 4990 - Data Science Capstone Course</option>
+    <option value="CSCI4990R">CSCI 4990R - Undergraduate Research Thesis (or Final Project)</option>
+    <option value="CSCI5007">CSCI 5007 - Internship in Computer Science Business/Industry</option>
+    <option value="CSCI5310">CSCI 5310 - Web Composing and Scripting</option>
+    <option value="CSCI7310">CSCI 7310 - Web Composing and Scripting</option>
+</select>
+   
+            
+  <button type="submit">Connect</button>
+    <div class="error-msg" id="errorMsg">Please select a valid course from the dropdown.</div>
+  </form>
+
+
+
+   <script>
+         const form = document.getElementById('CoursesForm');
+        const dropdown = document.getElementById('courses');
+        const errorMsg = document.getElementById('errorMsg');
+
+        form.addEventListener('submit', function(event) {
+            
+            if (dropdown.value == "") {
+                event.preventDefault(); // stop form submission
+                errorMsg.style.display = 'block';
+            } else {
+                errorMsg.style.display = 'none';
+            }
+        });
+    </script>
+
+
+    </body>
+
+
+</html>
