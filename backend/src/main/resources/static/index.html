@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Study Buddy UGA - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+         h1 {
+        text-align: center;
+        }
+        p {
+             text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 0.6rem;
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #005fa3;
+        }
+        .error-msg {
+            color: red;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="login-container">
+         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Georgia_Athletics_logo.svg/1200px-Georgia_Athletics_logo.svg.png" alt="UGA bulldogs" width="100" height="100">
+         <img src="https://m.media-amazon.com/images/I/71LlIjFN2GL._AC_UF894,1000_QL80_.jpg" alt="UGA bulldogs" width="100" height="100" style="float: right;">
+
+       <h1>	  Study Buddy 	</h1>
+       <p>Connect with UGA students for study support, collaboration, and academic success.</p>
+     
+        
+        <h2>Login</h2>
+        <form id="loginForm" action="/login" method="POST">
+            <div class="error-msg" id="errorMsg">Please enter a valid @uga.edu email.</div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="yourname@uga.edu" required />
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+
+            <button type="submit">Log In</button>
+        </form>
+
+      <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
+
+
+
+    </div>
+
+    <script>
+        // Simple client-side validation for @uga.edu emails
+        const form = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+        const errorMsg = document.getElementById('errorMsg');
+
+        form.addEventListener('submit', function(event) {
+            const emailValue = emailInput.value.trim();
+            if (!emailValue.endsWith('@uga.edu')) {
+                event.preventDefault(); // stop form submission
+                errorMsg.style.display = 'block';
+            } else {
+                errorMsg.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
