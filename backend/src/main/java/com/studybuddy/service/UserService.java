@@ -68,7 +68,8 @@ public class UserService {
     List<User> specificUsers = new ArrayList<>();
 
     for(int i = 0; i < allUsers.size(); i++) {
-        if(allUsers.get(i).getCourse().equals(course)) {
+        if(allUsers.get(i).getCourse() != null &&
+    allUsers.get(i).getCourse().equals(course)) {
             specificUsers.add(allUsers.get(i));
         }
     }
