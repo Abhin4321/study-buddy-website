@@ -7,9 +7,9 @@ import com.studybuddy.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
 
-import com.studybuddy.model.User;
+//import com.studybuddy.model.User;
 
-import java.util.*;
+//import java.util.*;
 
 @Controller
 public class UserController {
