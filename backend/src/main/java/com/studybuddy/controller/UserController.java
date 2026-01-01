@@ -52,12 +52,12 @@ public String login(@RequestParam String email, @RequestParam String password, H
 
 
 //----------Select Course Endpoint--------------
-@PostMapping("/select-course")
-public String selectCourse(@RequestParam String course, HttpSession session) {
+@PostMapping("/connect")
+public String selectCourse(@RequestParam String courses, HttpSession session) {
     String email = (String) session.getAttribute("email");
     if(email != null) {
-        userService.setUserCourse(email, course);
-        return "redirect:/users?course=" + course;
+        userService.setUserCourse(email, courses);
+        return "redirect:/users?courses=" + courses;
     }
     return "redirect:/index";
 }
@@ -65,13 +65,15 @@ public String selectCourse(@RequestParam String course, HttpSession session) {
 
 //----------View Users Endpoint------------------
 @GetMapping("/users")
-public String viewUsers(@RequestParam String course, Model model, HttpSession session) {
+public String viewUsers(@RequestParam String courses, Model model, HttpSession session) {
     String email = (String) session.getAttribute("email");
     if(email == null) {
         return "redirect:/index";
     }
     
-       model.addAttribute("users", userService.getUsersByCourse(course));
+       model.addAttribute("users", userService.getUsersByCourse(courses));
+       model.addAttribute("courses", courses);
+
     
     return "users";
 }
