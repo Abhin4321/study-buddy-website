@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Study Buddy UGA - Select Course</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #faf9f9;
+    text-align: center;
+    margin: 0;
+    padding-top: 20px;
+}
+        
+         h1 {
+        text-align: center;
+        }
+        p {
+             text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+       
+        #button1 {
+            width: 10%;
+            padding: 0.6rem;
+            background-color: #cc3300;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+
+             position: fixed;
+             bottom: 20px;      /* distance from bottom */
+             left: 50%;         /* center horizontally */
+             transform: translateX(-50%); /* shift left by half button width */
+        }
+
+        #button2 {
+    width: 10%;
+    padding: 0.6rem;
+    background-color: #cc3300;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+
+    position: fixed;
+    top: 20px;      /* distance from top */
+    right: 20px;    /* distance from right */
+    /* remove left and transform */
+}
+
+
+        #button1:hover {
+            background-color: #e45c07;
+        }
+         #button2:hover {
+            background-color: #e45c07;
+        }
+
+         .users-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+              margin: 20px auto; 
+        }
+
+
+        
+    </style>
+    </head>
+
+    <body>
+   
+  <h1>Students taking <span th:text="${courses}">CourseName</span></h1>
+   <p>Results: </p> 
+
+   <div class="users-container">
+
+    <p th:if="${#lists.isEmpty(users)}">
+        No users found for this course.
+    </p>
+
+    <ul th:if="${!#lists.isEmpty(users)}">
+        <li th:each="user : ${users}"
+            th:text="${user.email}">
+        </li>
+    </ul>
+
+</div>
+  
+    <button id="button1" onclick="window.location.href='/courses.html'">Back</button>
+    <button id="button2" onclick="window.location.href='/logout'">Logout</button>
+
+
+   
+
+
+    </body>
+
+
+</html>
