@@ -21,16 +21,6 @@ public UserController(UserService userService) {
     this.userService = userService;
 }
 
-
-//--------Testing-----------
-
- // @GetMapping("/test")
-//@ResponseBody
-//public String test() {
-    //return "TEST OK";
-//}
-
-
    // ---------- PAGE ROUTES (GET) ----------
 
     @GetMapping("/")
@@ -55,6 +45,11 @@ public UserController(UserService userService) {
         }
         return "courses";
     }
+
+
+
+//------------ENDPOINTS---------------------
+
 
 //------------Signup Endpoint----------------
 @PostMapping("/signup")
