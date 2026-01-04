@@ -39,10 +39,12 @@ public UserController(UserService userService) {
     }
 
     @GetMapping("/courses")
-    public String showCourses(HttpSession session) {
-        if (session.getAttribute("email") == null) {
+    public String showCourses(HttpSession session, Model model) {
+        String email =  (String) session.getAttribute("email");
+        if (email == null) {
             return "redirect:/login";
         }
+        model.addAttribute("email", email);
         return "courses";
     }
 
