@@ -14,11 +14,47 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class UserController {
 
+
 private final UserService userService;
 
 public UserController(UserService userService) {
     this.userService = userService;
 }
+
+
+//--------Testing-----------
+
+ // @GetMapping("/test")
+//@ResponseBody
+//public String test() {
+    //return "TEST OK";
+//}
+
+
+   // ---------- PAGE ROUTES (GET) ----------
+
+    @GetMapping("/")
+    public String showLoginPage() {
+        return "index";
+    }
+
+    @GetMapping("/login")
+    public String showLogin() {
+        return "index";
+    }
+
+    @GetMapping("/signup")
+    public String showSignup() {
+        return "signup";
+    }
+
+    @GetMapping("/courses")
+    public String showCourses(HttpSession session) {
+        if (session.getAttribute("email") == null) {
+            return "redirect:/login";
+        }
+        return "courses";
+    }
 
 //------------Signup Endpoint----------------
 @PostMapping("/signup")
@@ -42,7 +78,7 @@ public String login(@RequestParam String email, @RequestParam String password, H
 
     if(value == true) {
         session.setAttribute("email", email);
-        return "courses";
+         return "redirect:/courses";
     }
     else {
         return "index";
@@ -59,7 +95,7 @@ public String selectCourse(@RequestParam String courses, HttpSession session) {
         userService.setUserCourse(email, courses);
         return "redirect:/users?courses=" + courses;
     }
-    return "redirect:/index";
+    return "redirect:/login";
 }
 
 
@@ -68,7 +104,7 @@ public String selectCourse(@RequestParam String courses, HttpSession session) {
 public String viewUsers(@RequestParam String courses, Model model, HttpSession session) {
     String email = (String) session.getAttribute("email");
     if(email == null) {
-        return "redirect:/index";
+         return "redirect:/login";
     }
     
        model.addAttribute("users", userService.getUsersByCourse(courses));
@@ -81,7 +117,7 @@ public String viewUsers(@RequestParam String courses, Model model, HttpSession s
 @GetMapping("/logout")
 public String logout(HttpSession session) {
     session.invalidate();  
-    return "redirect:/index";  
+    return "redirect:/login";
 }
 
 
